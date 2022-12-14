@@ -6,14 +6,12 @@ test("code status page", async ({ page }) => {
   await link1.click();
   const statusCode200 = page.locator('//*[@id="content"]//*[1]/a');
   await statusCode200.click();
+  const page200 = page.locator('//*[@id="content"]//p');
+  await expect(page200).toContainText("\n" + "    This page returned a 200 status code.");
   await expect(page).toHaveURL(/.*200/);
-  const button200 = page.locator('//*[contains(text(), "here")]');
-  await button200.click();
-  await expect(page).toHaveURL(/.*status_codes/);
   const linkHere = page.locator('//*[@id="page-footer"]//*/a');
   await linkHere.click();
-
   await page.goto("https://elementalselenium.com/");
-  const selen = page.locator("/html/body/header//*/p/text()");
-  await expect(selen).toContainText("Sponsored by");
+  const selen = page.locator('//p[@class="subheader"]');
+  await expect(selen).toContainText("Sponsored by Sauce Labs");
 });
