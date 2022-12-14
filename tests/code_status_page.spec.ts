@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-test("", async ({ page }) => {
+test("code status page", async ({ page }) => {
   await page.goto("https://the-internet.herokuapp.com/redirector");
   const link1 = page.locator('//*[@id="redirect"]');
   await link1.click();
@@ -12,6 +12,8 @@ test("", async ({ page }) => {
   await expect(page).toHaveURL(/.*status_codes/);
   const linkHere = page.locator('//*[@id="page-footer"]//*/a');
   await linkHere.click();
+
+  await page.goto("https://elementalselenium.com/");
   const selen = page.locator("/html/body/header//*/p/text()");
-  //await expect(selen).toHaveText("Sponsored by\n×");//не понимаю что не так с выводом текста в строке, по xPath на 15 строке ищет - проверяла
+  await expect(selen).toContainText("Sponsored by");
 });
