@@ -1,0 +1,62 @@
+
+
+
+Customers:
+
+
+1. SELECT * FROM Customers WHERE city = 'London';
+
+2. SELECT CustomerName, ContactName FROM Customers WHERE Address like '%23'
+
+3. SELECT distinct City FROM Customers
+
+4. SELECT CustomerName FROM Customers WHERE PostalCode like '0%'
+
+5.SELECT CustomerName FROM Customers WHERE NOT Country = 'USA'
+
+6. SELECT CustomerName, ContactName, Country FROM Customers WHERE Country = 'France' ORDER
+
+ BY ContactName DESC
+
+7. SELECT CustomerName FROM Customers WHERE Country IN ('Germany','USA') LIMIT 10
+
+
+Products:
+
+
+1. SELECT ProductName FROM [Products] WHERE ProductName LIKE 'M%'
+
+2.SELECT Unit FROM [Products]WHERE ProductName = 'Steeleye Stout'
+
+3.SELECT ProductName FROM [Products]WHERE Price > 22
+
+4.SELECT ProductName FROM [Products] WHERE Unit >= ’50’ AND Unit <= ‘250’   или   SELECT ProductName FROM [Products] WHERE Unit BETWEEN 50 AND 250 // нет поля по которому можно отфильтровать
+
+5.SELECT ProductName FROM [Products] WHERE Unit LIKE '%bottles'
+
+6. SELECT ProductName FROM [Products] WHERE SupplierID = 7 ORDER BY Price DESC
+
+
+
+
+Составить запрос:
+
+SELECT Race FROM Character WHERE Race = 'dwarf' AND Level > 45
+
+
+
+
+Employees:
+
+1. SELECT FirstName, LastName, Notes FROM [Employees] WHERE FirstName = 'Leverling' OR LastName = 'Leverling'
+
+2. SELECT * FROM [Employees] WHERE BirthDate >'1960-12-31'
+
+3. SELECT BirthDate FROM [Employees] WHERE FirstName LIKE 'A%'
+
+4. SELECT FirstName, LastName, BirthDate FROM [Employees] ORDER BY BirthDate ASC
+
+
+
+
+
